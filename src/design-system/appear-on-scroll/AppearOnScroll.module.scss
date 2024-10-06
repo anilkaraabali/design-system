@@ -1,0 +1,19 @@
+.appear-on-scroll {
+  background-color: color(light);
+  border-top: size(1) solid color(neutral-03);
+  bottom: 0;
+  left: 0;
+  position: sticky;
+  width: 100%;
+  z-index: zIndex(navigation);
+
+  @include elevation(2);
+
+  &--not-in-view {
+    transition: transform 200ms ease-in-out;
+  }
+
+  &--hidden {
+    transform: translateY(100%);
+  }
+}

@@ -1,0 +1,16 @@
+@use 'sass:map';
+@import 'global';
+@import 'base/all';
+@import 'vendor';
+
+:root {
+  @each $name, $value in $colors {
+    --styleguide-color-#{$name}: #{$value};
+    --styleguide-color-rgb-#{$name}: #{map.get($colors-rgb, $name)};
+  }
+
+  @include typography-loop($english-font-settings);
+
+  --golden-ratio: 1.618;
+  --image-aspect-ratio: 2/3;
+}

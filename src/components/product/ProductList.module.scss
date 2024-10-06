@@ -1,0 +1,6 @@
+.product-list {
+  display: grid;
+  gap: spacing(10) spacing(0);
+  grid-template-columns: repeat(var(--grid-count), 1fr);
+  margin-bottom: spacing(10);
+}

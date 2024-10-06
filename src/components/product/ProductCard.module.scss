@@ -1,0 +1,104 @@
+$selector: '.card';
+
+#{$selector} {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(4);
+  position: relative;
+
+  &__animated {
+    transition: opacity 300ms ease-in-out;
+
+    &--hidden {
+      opacity: 0;
+    }
+  }
+
+  &__top {
+    // na
+  }
+
+  &__gallery {
+    &__link {
+      display: flex;
+      height: 100%;
+      inset: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  &__badge {
+    left: size(12);
+    position: absolute;
+    top: size(12);
+  }
+
+  &__quick-actions {
+    position: absolute;
+    right: size(12);
+    top: size(12);
+    z-index: zIndex(resting);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-height: size(48);
+  }
+
+  &__title {
+    text-wrap: wrap;
+
+    @include font(body-2);
+    @include ellipsis(2);
+  }
+
+  &__prices {
+    margin-top: spacing();
+  }
+
+  &__price {
+    @include font(button);
+
+    span {
+      padding-inline: spacing(0);
+    }
+
+    &--sale {
+      color: color(emphasis-sale);
+    }
+
+    &--strike {
+      text-decoration: line-through;
+    }
+  }
+
+  &__colors {
+    align-items: center;
+    display: flex;
+    gap: spacing();
+    margin-top: spacing(3);
+    padding-inline: spacing();
+  }
+
+  &__color {
+    border-radius: 50%;
+    cursor: pointer;
+    height: size(8);
+    width: size(8);
+
+    &:not(#{$selector}__color--active) {
+      border: size(1) solid color(neutral-02);
+    }
+
+    &-more {
+      @include font(caption);
+    }
+
+    &--active {
+      outline: size(1) solid color(brand-primary-01);
+      outline-offset: size(1);
+    }
+  }
+}

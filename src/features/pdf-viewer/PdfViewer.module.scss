@@ -1,0 +1,16 @@
+.pdf-layout {
+  &__header {
+    padding-block: spacing(8);
+  }
+
+  &__breadcrumbs {
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  &__title {
+    text-align: center;
+
+    @include page-title;
+  }
+}

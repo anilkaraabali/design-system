@@ -1,0 +1,161 @@
+@mixin buttonLikeThemeStyles {
+  align-items: center;
+  border-radius: radius();
+  display: inline-flex;
+  justify-content: center;
+
+  &--with-padding {
+    padding-inline: spacing(3);
+  }
+
+  &--rounded {
+    border-radius: radius(100);
+  }
+}
+
+@mixin iconModifiers {
+  &--reduce-padding-prefix {
+    padding-left: spacing(2);
+  }
+
+  &--reduce-padding-suffix {
+    padding-right: spacing(2);
+  }
+
+  &__icon {
+    &--prefix {
+      margin-right: spacing();
+    }
+
+    &--suffix {
+      margin-left: spacing();
+    }
+  }
+}
+
+@mixin linkTheme($component: button) {
+  color: color(brand-secondary-07);
+  height: auto;
+  text-decoration: underline;
+
+  @include hover-pointer-fine {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &:active {
+    color: color(brand-secondary-06);
+  }
+}
+
+@mixin primaryTheme($component: button) {
+  @include buttonLikeThemeStyles;
+
+  background-color: color(brand-primary-06);
+  color: color(light);
+
+  @include hover-pointer-fine {
+    &:hover {
+      background-color: color(brand-primary-07);
+      position: relative;
+
+      &::after {
+        background-color: color(dark, 0.12);
+        border-radius: radius();
+        content: '';
+        height: 100%;
+        inset: 0;
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@mixin secondaryTheme($component: button) {
+  @include buttonLikeThemeStyles;
+
+  background-color: color(light);
+  border: 1px solid color(brand-secondary-05);
+  color: color(brand-secondary-07);
+
+  @include hover-pointer-fine {
+    &:hover {
+      background-color: color(brand-secondary-02);
+      border-color: color(brand-secondary-05);
+    }
+  }
+
+  &:active {
+    background-color: color(brand-secondary-02);
+    border-color: color(brand-secondary-05);
+  }
+}
+
+@mixin tertiaryTheme($component: button) {
+  @include buttonLikeThemeStyles;
+
+  background-color: color(brand-secondary-01);
+  color: color(brand-secondary-07);
+
+  @include hover-pointer-fine {
+    &:hover {
+      background-color: color(brand-secondary-02);
+    }
+  }
+
+  &:active {
+    background-color: color(brand-secondary-03);
+  }
+}
+
+@mixin ghostTheme($component: button) {
+  @include buttonLikeThemeStyles;
+
+  color: color(brand-secondary-07);
+
+  @include hover-pointer-fine {
+    &:hover {
+      background-color: color(brand-secondary-01);
+    }
+  }
+
+  &:hover {
+    background-color: color(brand-secondary-02);
+  }
+}
+
+@mixin themeStyles {
+  border-radius: radius(s);
+  transition: all 150ms ease-out;
+}
+
+@mixin commonStyles($component: button) {
+  @include font(button);
+
+  &:focus-visible {
+    outline: 2px solid color(utilities-focus);
+    outline-offset: 1px;
+    z-index: zIndex(resting);
+  }
+
+  &-size {
+    &--xsmall {
+      height: size(24);
+      min-width: size(24);
+    }
+
+    &--small {
+      height: size(36);
+      min-width: size(36);
+    }
+
+    &--default {
+      height: size(48);
+      min-width: size(48);
+    }
+  }
+}

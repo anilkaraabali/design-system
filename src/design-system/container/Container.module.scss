@@ -1,0 +1,38 @@
+$selector: '.container';
+
+#{$selector} {
+  &:not(#{$selector}--fluid) {
+    margin-inline: auto;
+    width: calc(100% - spacing(4));
+
+    @include breakpoint(md) {
+      width: calc(100% - spacing(6));
+    }
+
+    @include breakpoint(lg) {
+      width: calc(100% - spacing(9));
+    }
+
+    @include breakpoint(xl) {
+      width: calc(100% - spacing(10));
+    }
+
+    @include breakpoint(xxl) {
+      max-width: size(1224);
+      width: 100%;
+    }
+  }
+
+  &--fluid {
+    padding-inline: spacing(4);
+    width: 100%;
+
+    @include breakpoint(md) {
+      padding-inline: spacing(6);
+    }
+
+    @include breakpoint(xxl) {
+      padding-inline: spacing(7);
+    }
+  }
+}

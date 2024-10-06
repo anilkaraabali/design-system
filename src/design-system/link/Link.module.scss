@@ -1,0 +1,33 @@
+@import '../button/ButtonTheme';
+
+.link {
+  cursor: pointer;
+
+  @include commonStyles(link);
+
+  &-theme {
+    @include themeStyles;
+
+    &--link {
+      @include linkTheme(link);
+    }
+
+    &--primary {
+      @include primaryTheme(link);
+    }
+
+    &--secondary {
+      @include secondaryTheme(link);
+    }
+
+    &--tertiary {
+      @include tertiaryTheme(link);
+    }
+
+    &--ghost {
+      @include ghostTheme(link);
+    }
+  }
+
+  @include iconModifiers;
+}

@@ -1,0 +1,62 @@
+$selector: '.search-field';
+
+#{$selector} {
+  align-items: center;
+  display: flex;
+  gap: spacing();
+  height: size(48);
+  padding-inline: spacing(3);
+  transition: all 150ms ease-out;
+
+  &:not(#{$selector}--disabled) {
+    &:active,
+    &:focus-within {
+      background-color: color(neutral-01);
+
+      // Box-shadow is used instead of border to avoid content jumping between states due to width difference
+      box-shadow: 0 0 0 2px color(brand-secondary-06);
+    }
+  }
+
+  &--theme {
+    &-default {
+      background-color: color(neutral-01);
+      border-radius: radius(xxl);
+      box-shadow: 0 0 0 1px transparent;
+    }
+
+    &-alternative {
+      background-color: transparent;
+      border-radius: radius();
+      box-shadow: 0 0 0 1px color(neutral-04);
+    }
+  }
+
+  &--disabled {
+    background-color: color(neutral-02);
+    box-shadow: none;
+    color: color(neutral-04);
+    cursor: not-allowed;
+    pointer-events: none;
+
+    #{$selector}__input {
+      color: color(neutral-04);
+
+      &::placeholder {
+        color: color(neutral-04);
+      }
+    }
+  }
+
+  &__icon {
+    color: color(neutral-06);
+  }
+
+  &__input {
+    width: 100%;
+
+    &::placeholder {
+      color: color(neutral-06);
+    }
+  }
+}

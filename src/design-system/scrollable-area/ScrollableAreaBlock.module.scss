@@ -1,0 +1,43 @@
+.scrollable-area-block {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(4);
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+    gap: spacing(4);
+    justify-content: space-between;
+  }
+
+  &__heading {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: spacing(2);
+  }
+
+  &__title {
+    @include font(heading-4);
+
+    text-transform: uppercase;
+  }
+
+  &__cta {
+    align-self: flex-end;
+  }
+
+  &__item {
+    width: calc(100% / 1.5);
+
+    @include breakpoint(md) {
+      width: calc(100% / 3.5);
+    }
+
+    @include breakpoint(xl) {
+      width: calc(100% / 5.5);
+    }
+  }
+}

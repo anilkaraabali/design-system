@@ -1,0 +1,22 @@
+[
+  {
+    "key": "bedroom",
+    "label": "Bedroom",
+    "url": "/collections/bedroom",
+    "coverImage": "https://static.zarahome.net/assets/public/08a1/ef79/c3ce4b37a3a3/82644199ac28/40150088052-p1/40150088052-p1.jpg?ts=1720701774291&w=1536&imformat=chrome",
+    "children": [
+      {
+        "key": "bed-linen",
+        "label": "Bed Linen",
+        "url": "/collections/bedroom/bed-linen",
+        "coverImage": "https://static.zarahome.net/assets/public/08a1/ef79/c3ce4b37a3a3/82644199ac28/40150088052-p1/40150088052-p1.jpg?ts=1720701774291&w=1536&imformat=chrome"
+      }
+    ]
+  },
+  {
+    "key": "sale",
+    "label": "Sale: Last Chance",
+    "url": "/collections/sale",
+    "children": []
+  }
+]

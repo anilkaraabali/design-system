@@ -1,0 +1,16 @@
+.navigation-arrows {
+  align-items: center;
+  display: flex;
+  gap: spacing(4);
+
+  &__arrow {
+    &:disabled {
+      color: color(neutral-03);
+      pointer-events: none;
+    }
+
+    &#{&}:disabled {
+      background-color: inherit;
+    }
+  }
+}

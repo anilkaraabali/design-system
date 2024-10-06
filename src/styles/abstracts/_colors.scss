@@ -1,0 +1,87 @@
+@use 'sass:map';
+@use 'sass:color';
+
+@function rgbCalculator($selected-color: null) {
+  @return color.red($selected-color), color.green($selected-color),
+    color.blue($selected-color);
+}
+
+$colors: (
+  text-primary: #333,
+  text-secondary: #707070,
+  light: #fff,
+  neutral-01: #f7f7f7,
+  neutral-02: #e3e3e3,
+  neutral-03: #ccc,
+  neutral-04: #b0b0b0,
+  neutral-05: #919191,
+  neutral-06: #707070,
+  neutral-07: #4f4f4f,
+  neutral-08: #333,
+  neutral-09: #191919,
+  dark: #000,
+  brand-primary-01: #fdf5f5,
+  brand-primary-02: #fadcdb,
+  brand-primary-03: #f6bfbb,
+  brand-primary-04: #f29892,
+  brand-primary-05: #ef5e4e,
+  brand-primary-06: #d2412b,
+  brand-primary-07: #8f2d20,
+  brand-primary-08: #601b12,
+  brand-primary-09: #360b06,
+  brand-secondary-01: #f7f6fb,
+  brand-secondary-02: #e3e1f2,
+  brand-secondary-03: #cdc8e8,
+  brand-secondary-04: #b1aadc,
+  brand-secondary-05: #9388cd,
+  brand-secondary-06: #7363ba,
+  brand-secondary-07: #5745a0,
+  brand-secondary-08: #352965,
+  brand-secondary-09: #1b1439,
+  brand-tertiary-01: #eff9ff,
+  brand-tertiary-02: #cee7f4,
+  brand-tertiary-03: #a5d2e7,
+  brand-tertiary-04: #79b9d3,
+  brand-tertiary-05: #579ab4,
+  brand-tertiary-06: #2e7992,
+  brand-tertiary-07: #155d72,
+  brand-tertiary-08: #073c4b,
+  brand-tertiary-09: #002b37,
+  success-01: #deffea,
+  success-02: #a9f4c5,
+  success-03: #72e2a1,
+  success-04: #45c782,
+  success-05: #00a663,
+  success-06: #00814b,
+  success-07: #005c34,
+  success-08: #003c20,
+  success-09: #001f0e,
+  warning-01: #fff6ea,
+  warning-02: #fedfb1,
+  warning-03: #f7c55f,
+  warning-04: #dda800,
+  warning-05: #b78a00,
+  warning-06: #8e6b00,
+  warning-07: #654b00,
+  warning-08: #423000,
+  warning-09: #231800,
+  error-01: #fff5f6,
+  error-02: #ffdade,
+  error-03: #ffbac1,
+  error-04: #ff8f9d,
+  error-05: #f35e75,
+  error-06: #cf3151,
+  error-07: #a10031,
+  error-08: #6c001e,
+  error-09: #3d000d,
+  emphasis-sale: #cf0a2c,
+  utilities-focus: #4c94e6,
+);
+$colors-rgb: ();
+
+@each $key, $value in $colors {
+  $temp: (
+    $key: #{rgbCalculator($value)},
+  );
+  $colors-rgb: map.merge($colors-rgb, $temp);
+}

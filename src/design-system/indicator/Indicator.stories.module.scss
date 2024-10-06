@@ -1,0 +1,7 @@
+.indicator {
+  &__dot {
+    &::after {
+      background: color(dark);
+    }
+  }
+}

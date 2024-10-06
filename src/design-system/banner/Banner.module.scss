@@ -1,0 +1,89 @@
+$selector: '.banner';
+
+#{$selector} {
+  align-items: center;
+  border: 1px solid color(neutral-02);
+  border-left-width: 0;
+  border-radius: radius();
+  display: flex;
+  gap: spacing(2);
+  justify-content: space-between;
+  min-height: size(56);
+  padding: spacing(4);
+  position: relative;
+  z-index: zIndex(base);
+
+  &::before {
+    border-bottom-left-radius: radius();
+    border-top-left-radius: radius();
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: size(5);
+  }
+
+  &-status {
+    &--success {
+      &::before {
+        background-color: color(success-05);
+      }
+
+      #{$selector}__icon {
+        color: color(success-05);
+      }
+    }
+
+    &--critical {
+      &::before {
+        background-color: color(error-05);
+      }
+
+      #{$selector}__icon {
+        color: color(error-05);
+      }
+    }
+
+    &--warning {
+      &::before {
+        background-color: color(warning-04);
+      }
+
+      #{$selector}__icon {
+        color: color(warning-04);
+      }
+    }
+
+    &--info {
+      &::before {
+        background-color: color(utilities-focus);
+      }
+
+      #{$selector}__icon {
+        color: color(utilities-focus);
+      }
+    }
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    gap: spacing(2);
+  }
+
+  &__text {
+    flex: 1;
+
+    @include font(body-2);
+  }
+
+  &__button {
+    display: flex;
+  }
+
+  &__icon {
+    align-self: flex-start;
+    display: flex;
+  }
+}

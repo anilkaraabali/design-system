@@ -1,0 +1,8 @@
+$selector: '.footer';
+
+#{$selector} {
+  background-color: color(neutral-01);
+  display: flex;
+  flex-direction: column;
+  padding-block: spacing(10) spacing(6);
+}

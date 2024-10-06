@@ -1,0 +1,18 @@
+.menu-quick-links {
+  height: size(48);
+  overflow-x: auto;
+  width: 100%;
+
+  @include hide-scrollbar;
+
+  &__list {
+    align-items: center;
+    display: flex;
+  }
+
+  &__item {
+    & + & {
+      margin-left: spacing(2);
+    }
+  }
+}

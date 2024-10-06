@@ -1,0 +1,9 @@
+@mixin borderRadiusLoop {
+  @each $name, $value in $border-radius-types {
+    @if $name == 100 {
+      --styleguide-border-radius-#{$name}: #{$value};
+    } @else {
+      --styleguide-border-radius-#{$name}: #{size($value)};
+    }
+  }
+}

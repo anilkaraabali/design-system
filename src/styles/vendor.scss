@@ -1,0 +1,16 @@
+.modal-block-overflow,
+.bottom-sheet-block-overflow,
+.drawer-block-overflow,
+.gallery-fullscreen-block-overflow {
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main {
+  flex: 1;
+}

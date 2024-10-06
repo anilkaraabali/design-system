@@ -1,0 +1,126 @@
+$selector: '.text-field';
+
+@mixin containerStyles {
+  align-items: center;
+  background: color(light);
+  border-radius: radius();
+
+  // Box-shadow is used instead of border to avoid content jumping between states due to width difference
+  box-shadow: 0 0 0 1px color(neutral-04);
+  display: flex;
+  gap: spacing(2);
+  height: size(48);
+  padding-inline: spacing(3);
+  transition: box-shadow 300ms ease;
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px color(brand-secondary-06);
+  }
+
+  &--error {
+    box-shadow: 0 0 0 2px color(error-06);
+  }
+
+  &--disabled {
+    background-color: color(neutral-02);
+    box-shadow: none;
+    color: color(neutral-04);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+#{$selector} {
+  position: relative;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: spacing();
+
+    &--label {
+      &-inside {
+        min-height: size(68);
+
+        #{$selector} {
+          @include containerStyles;
+
+          &__label {
+            color: color(neutral-06);
+            position: absolute;
+            transform: translate(0, 14px);
+            transition:
+              transform 300ms ease,
+              font-size 300ms ease,
+              line-height 300ms ease;
+          }
+
+          &__input {
+            padding: spacing(4) 0 spacing();
+
+            &-wrapper {
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+
+        &:focus-within #{$selector}__label,
+        #{$selector}__label--active {
+          transform: translate(0, 2px);
+
+          @include font(caption);
+        }
+      }
+
+      &-outside {
+        min-height: size(96);
+
+        #{$selector} {
+          &__input {
+            padding-block: spacing(2);
+
+            &-wrapper {
+              @include containerStyles;
+            }
+          }
+
+          &__label {
+            @include font(body-2);
+
+            display: block;
+            margin-bottom: spacing();
+          }
+        }
+      }
+    }
+  }
+
+  &__label {
+    pointer-events: none;
+  }
+
+  &__text {
+    @include font(caption);
+
+    color: color(neutral-06);
+    margin-left: spacing(2);
+
+    &--error {
+      color: color(error-06);
+    }
+  }
+
+  &__input {
+    height: 100%;
+    width: 100%;
+
+    &:disabled {
+      color: color(neutral-04);
+    }
+
+    &::placeholder {
+      color: color(neutral-06);
+    }
+  }
+}

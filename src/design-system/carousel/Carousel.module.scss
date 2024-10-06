@@ -1,0 +1,14 @@
+.carousel {
+  overflow: hidden;
+
+  &__list {
+    display: flex;
+    overflow: hidden;
+  }
+
+  &__item {
+    border-radius: radius(l);
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+}

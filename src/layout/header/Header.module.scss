@@ -1,0 +1,47 @@
+$selector: '.header';
+
+#{$selector} {
+  background-color: color(light);
+  left: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+
+  &--sticky {
+    z-index: zIndex(navigation);
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    height: size(64);
+    justify-content: space-between;
+  }
+
+  &__left {
+    align-items: center;
+    display: flex;
+    gap: spacing();
+    position: relative;
+
+    @include breakpoint(md) {
+      gap: spacing(3);
+    }
+  }
+
+  &__logo {
+    img {
+      height: size(48);
+      width: auto;
+    }
+  }
+
+  &__menu-button {
+    margin-left: -(spacing(4));
+    padding-left: spacing();
+
+    svg {
+      color: var(--styleguide-button-ghost-color);
+    }
+  }
+}

@@ -1,0 +1,67 @@
+$selector: '.tag';
+
+#{$selector} {
+  align-items: center;
+  background: color(neutral-08, 0.6);
+  color: color(light);
+  display: inline-flex;
+  padding-inline: spacing(2);
+
+  &--default {
+    border-radius: radius(s);
+  }
+
+  &--rounded {
+    border-radius: radius(xl);
+  }
+
+  &--reduce-padding-prefix {
+    padding-left: spacing(1);
+  }
+
+  &--reduce-padding-suffix {
+    padding-right: spacing(1);
+  }
+
+  &--sale {
+    background-color: color(emphasis-sale);
+  }
+
+  &-size {
+    &--small {
+      height: size(16);
+
+      @include font(caption);
+    }
+
+    &--medium {
+      height: size(20);
+
+      @include font(caption);
+    }
+
+    &--large {
+      height: size(24);
+
+      @include font(body-2);
+
+      #{$selector}__icon {
+        height: size(24);
+        width: size(24);
+      }
+    }
+  }
+
+  &__icon {
+    height: size(16);
+    width: size(16);
+
+    &--prefix {
+      margin-right: spacing();
+    }
+
+    &--suffix {
+      margin-left: spacing();
+    }
+  }
+}

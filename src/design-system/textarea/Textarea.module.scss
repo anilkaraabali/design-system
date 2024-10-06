@@ -1,0 +1,81 @@
+$selector: '.textarea';
+
+#{$selector} {
+  display: flex;
+  flex-direction: column;
+  gap: spacing();
+  position: relative;
+
+  &--inside {
+    min-height: size(110);
+  }
+
+  &--outside {
+    min-height: size(138);
+  }
+
+  &--disabled {
+    #{$selector}__input {
+      background-color: color(neutral-02);
+      box-shadow: none;
+      color: color(neutral-04);
+      cursor: not-allowed;
+    }
+
+    #{$selector}__info {
+      color: color(neutral-06);
+    }
+  }
+
+  &--error {
+    #{$selector}__input {
+      box-shadow: 0 0 0 2px color(error-06);
+    }
+
+    #{$selector}__info {
+      color: color(error-06);
+    }
+  }
+
+  &__label {
+    pointer-events: none;
+
+    @include font(body-2);
+  }
+
+  &__input {
+    background: color(light);
+    border-radius: radius();
+
+    // Box-shadow is used instead of border to avoid content jumping between states due to width difference
+    box-shadow: 0 0 0 1px color(neutral-04);
+    min-height: size(90);
+    overflow-wrap: break-word;
+    padding: spacing(2) spacing(3);
+    transition: box-shadow 300ms ease;
+
+    @include font(body);
+
+    &:focus-within {
+      box-shadow: 0 0 0 2px color(brand-secondary-06);
+    }
+
+    &::placeholder {
+      color: color(neutral-06);
+    }
+  }
+
+  &__info {
+    @include font(caption);
+
+    color: color(neutral-06);
+    margin-left: spacing(2);
+  }
+
+  &__error {
+    @include font(caption);
+
+    color: color(error-06);
+    margin-left: spacing(2);
+  }
+}

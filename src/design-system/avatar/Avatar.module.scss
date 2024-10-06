@@ -1,0 +1,88 @@
+.avatar {
+  align-items: center;
+  border-radius: radius(full);
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  img {
+    border-radius: radius(full);
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &--halo {
+    outline: 2px solid color(brand-secondary-07);
+    outline-offset: 1px;
+  }
+
+  &--initials {
+    background-color: color(brand-secondary-02);
+    color: color(brand-secondary-07);
+  }
+
+  &-size {
+    &--x-small {
+      height: size(24);
+      width: size(24);
+
+      @include font(caption);
+    }
+
+    &--small {
+      height: size(32);
+      width: size(32);
+
+      @include font(body);
+    }
+
+    &--medium {
+      height: size(48);
+      width: size(48);
+
+      @include font(heading-6);
+    }
+
+    &--large {
+      height: size(96);
+      width: size(96);
+
+      @include font(heading-4);
+    }
+
+    &--x-large {
+      height: size(140);
+      width: size(140);
+
+      @include font(heading-2);
+    }
+  }
+
+  &__placeholder {
+    &--x-small {
+      height: size(24);
+      width: size(24);
+    }
+
+    &--small {
+      height: size(32);
+      width: size(32);
+    }
+
+    &--medium {
+      height: size(48);
+      width: size(48);
+    }
+
+    &--large {
+      height: size(96);
+      width: size(96);
+    }
+
+    &--x-large {
+      height: size(140);
+      width: size(140);
+    }
+  }
+}

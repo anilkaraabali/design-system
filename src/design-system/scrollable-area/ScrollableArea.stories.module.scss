@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  gap: spacing(2);
+}
+
+.item {
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  width: 400px;
+}

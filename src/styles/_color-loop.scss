@@ -1,0 +1,8 @@
+@use 'sass:map';
+
+@mixin colorsLoop {
+  @each $name, $value in $colors {
+    --styleguide-color-#{$name}: #{$value};
+    --styleguide-color-rgb-#{$name}: #{map.get($colors-rgb, $name)};
+  }
+}

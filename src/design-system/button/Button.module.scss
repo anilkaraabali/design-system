@@ -1,0 +1,55 @@
+@import './ButtonTheme';
+
+.button {
+  @include commonStyles;
+
+  cursor: pointer;
+
+  &--loading {
+    align-items: center;
+    color: color(dark);
+    cursor: default;
+    display: flex;
+    pointer-events: none;
+  }
+
+  &-theme {
+    @include themeStyles;
+
+    &--link {
+      @include linkTheme;
+    }
+
+    &--primary {
+      @include primaryTheme;
+    }
+
+    &--secondary {
+      @include secondaryTheme;
+    }
+
+    &--tertiary {
+      @include tertiaryTheme;
+    }
+
+    &--ghost {
+      @include ghostTheme;
+    }
+  }
+
+  @include iconModifiers;
+
+  &:disabled {
+    background-color: color(neutral-02);
+    color: color(neutral-04);
+    pointer-events: none;
+  }
+
+  &-theme--secondary:disabled {
+    border-color: transparent;
+  }
+
+  &-theme--ghost:disabled {
+    background-color: transparent;
+  }
+}

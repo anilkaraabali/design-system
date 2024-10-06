@@ -1,0 +1,154 @@
+$remBase: 10 !default;
+$useRem: true !default;
+$spacing-types: (
+  0: 2,
+  1: 4,
+  2: 8,
+  3: 12,
+  4: 16,
+  5: 20,
+  6: 24,
+  7: 32,
+  8: 40,
+  9: 48,
+  10: 64,
+  11: 96,
+  12: 128,
+);
+$z-index-types: (
+  under: -1,
+  base: 0,
+  resting: 1,
+  floating: 2,
+  navigation: 3,
+  modal: 4,
+  header: 5,
+);
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1080px,
+  'xxl': 1353px,
+);
+$elevation-types: (
+  0: inset 0 2px 0 rgb(0 0 0 / 5%),
+  1: (
+    0 1px 2px 0 rgb(0 0 0 / 5%),
+    0 3px 3px 0 rgb(0 0 0 / 4%),
+    0 7px 4px 0 rgb(0 0 0 / 2%),
+  ),
+  2: (
+    0 3px 6px 0 rgb(0 0 0 / 5%),
+    0 10px 10px 0 rgb(0 0 0 / 5%),
+    0 23px 14px 0 rgb(0 0 0 / 3%),
+  ),
+  3: (
+    0 9px 20px 0 rgb(0 0 0 / 6%),
+    0 36px 36px 0 rgb(0 0 0 / 5%),
+    0 81px 49px 0 rgb(0 0 0 / 3%),
+    0 144px 58px 0 rgb(0 0 0 / 1%),
+    0 225px 63px 0 rgb(0 0 0 / 0%),
+  ),
+  4: (
+    1px 30px 65px 0 rgb(0 0 0 / 8%),
+    6px 118px 118px 0 rgb(0 0 0 / 7%),
+    13px 266px 160px 0 rgb(0 0 0 / 4%),
+    23px 473px 190px 0 rgb(0 0 0 / 1%),
+    36px 740px 207px 0 rgb(0 0 0 / 0%),
+  ),
+);
+$border-radius-types: (
+  xs: 2,
+  s: 4,
+  m: 8,
+  l: 12,
+  xl: 16,
+  xxl: 24,
+  full: 512,
+  100: 100%,
+);
+$english-font-settings: (
+  heading-1: (
+    size: 89,
+    lh: normal,
+    ls: '-0.01562em',
+    fw: 300,
+  ),
+  heading-2: (
+    size: 55,
+    lh: normal,
+    ls: '-0.00833em',
+    fw: 300,
+  ),
+  heading-3: (
+    size: 44,
+    lh: normal,
+    ls: '0em',
+    fw: 400,
+  ),
+  heading-4: (
+    size: 31,
+    lh: normal,
+    ls: '0.00735em',
+    fw: 400,
+  ),
+  heading-5: (
+    size: 22,
+    lh: normal,
+    ls: '0em',
+    fw: 400,
+  ),
+  heading-6: (
+    size: 18,
+    lh: normal,
+    ls: '0.0075em',
+    fw: 500,
+  ),
+  subtitle-1: (
+    size: 15,
+    lh: normal,
+    ls: '0.15px',
+    fw: 400,
+  ),
+  subtitle-2: (
+    size: 13,
+    lh: normal,
+    ls: '0.1px',
+    fw: 500,
+  ),
+  body: (
+    size: 16,
+    lh: normal,
+    ls: '0.00938em',
+    fw: 400,
+  ),
+  body-2: (
+    size: 14,
+    lh: normal,
+    ls: '0.01071em',
+    fw: 400,
+  ),
+  button: (
+    size: 14,
+    lh: normal,
+    ls: '0.02857em',
+    fw: 500,
+  ),
+  caption: (
+    size: 12,
+    lh: normal,
+    ls: '0.03333em',
+    fw: 400,
+  ),
+  overline: (
+    size: 10,
+    lh: normal,
+    ls: '0.08333em',
+    fw: 400,
+  ),
+);
+$language: en !default;
+$languages-map: (
+  en: $english-font-settings,
+);

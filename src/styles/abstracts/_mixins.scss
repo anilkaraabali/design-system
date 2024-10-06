@@ -1,0 +1,170 @@
+@use 'sass:map';
+@forward 'variables';
+@forward 'colors';
+
+@mixin getErrorMessage($variable: null, $variables: null) {
+  /* stylelint-disable-next-line scss/operator-no-newline-after */
+  $error-message: #{'Invalid' + ' ' + $variable + ' ' +
+    'type, try one of these instead:'};
+
+  @each $name, $value in $variables {
+    $error-message: $error-message + ' #{$name},';
+  }
+
+  @error $error-message;
+}
+
+@mixin elevation($type: 0) {
+  @if map-has-key($elevation-types, $type) {
+    box-shadow: map-get($elevation-types, $type);
+  } @else {
+    @include getErrorMessage('elevation', $elevation-types);
+  }
+}
+
+@mixin typography-loop($settings) {
+  @each $name, $properties in $settings {
+    @each $property, $value in $properties {
+      @if $property == 'size' {
+        // Convert the size value to a CSS value with a unit (e.g., pixels)
+        --styleguide-typography-#{$name}-#{$property}: #{size($value)};
+      } @else {
+        // For other properties, just set them as-is
+        --styleguide-typography-#{$name}-#{$property}: #{$value};
+      }
+    }
+  }
+}
+
+@mixin font($key: body, $weight: null) {
+  @if map.has-key($languages-map, $language) {
+    $settings: map.get($languages-map, $language);
+
+    @if map.has-key($settings, $key) {
+      $properties: map.get($settings, $key);
+
+      @if index(body body-2 caption overline button, $key) {
+        font-family: var(--font-family-primary);
+      } @else {
+        font-family: var(--font-family-secondary);
+      }
+
+      font-size: var(
+        --styleguide-typography-#{$key}-size,
+        map.get($properties, size)
+      );
+
+      @if $weight {
+        font-weight: $weight;
+      } @else {
+        font-weight: var(
+          --styleguide-typography-#{$key}-fw,
+          map.get($properties, fw)
+        );
+      }
+
+      letter-spacing: var(
+        --styleguide-typography-#{$key}-ls,
+        map.get($properties, ls)
+      );
+      line-height: var(
+        --styleguide-typography-#{$key}-lh,
+        map.get($properties, lh)
+      );
+    } @else {
+      @error "Wrong key passed, please check SCSS to see all available keys";
+    }
+  } @else {
+    @error "Wrong language passed, please use en";
+  }
+}
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @include getErrorMessage('breakpoint', $breakpoints);
+  }
+}
+
+@mixin hover-pointer-fine {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin pointer-coarse {
+  @media (pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin ellipsis($lines: 1) {
+  overflow: hidden;
+
+  @if $lines == 1 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+  }
+}
+
+@mixin hide-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@mixin make-grid($column: 3, $min-width: 100) {
+  --grid-column-count: 3;
+  --grid-layout-gap: #{spacing(2)};
+  --grid-item-min-width: #{size($min-width)};
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item-max-width: calc(
+    (100% - var(--total-gap-width)) / var(--grid-column-count)
+  );
+
+  display: grid;
+  grid-gap: var(--grid-layout-gap);
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(var(--grid-item-min-width), var(--grid-item-max-width)), 1fr)
+  );
+}
+
+@mixin hover-effect($isAlwaysVisible: false) {
+  --border-color: #{color(brand-primary-01)};
+  --border-width: 1px;
+  --bottom-distance: 0px;
+
+  background-image: linear-gradient(var(--border-color), var(--border-color));
+  background-position: 0 calc(100% - var(--bottom-distance));
+  background-repeat: no-repeat;
+  background-size: 0% var(--border-width);
+  transition: background-size 0.6s cubic-bezier(0.66, 0, 0.5, 1);
+
+  @if $isAlwaysVisible {
+    background-position: 50% calc(100% - var(--bottom-distance));
+    background-size: 16px var(--border-width);
+  } @else {
+    @include hover-pointer-fine {
+      &:hover {
+        background-size: 100% var(--border-width);
+      }
+    }
+  }
+}
+
+@mixin image-scale {
+  filter: brightness(0.9);
+  transform: scale(1.04);
+}

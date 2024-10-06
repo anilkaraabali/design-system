@@ -1,0 +1,109 @@
+$borderColor: color(neutral-02);
+$selector: '.bottom-sheet';
+
+#{$selector} {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  left: 0;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  transform: translateY(0);
+  transition: transform 300ms ease-in-out;
+  width: 100%;
+  z-index: zIndex(modal);
+
+  &__drag {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: spacing(2);
+
+    &--content {
+      background-color: color(neutral-02);
+      border-radius: size(100);
+      display: inline-block;
+      height: size(4);
+      width: size(32);
+    }
+  }
+
+  &__body {
+    background-color: color(light);
+    border-radius: radius(l) radius(l) 0 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+
+    &--no-header {
+      padding-top: spacing(9);
+    }
+
+    @include elevation(3);
+  }
+
+  &__header {
+    border-bottom: 1px solid #{$borderColor};
+    min-height: size(56);
+    padding: spacing(4);
+  }
+
+  &__title {
+    @include font(heading-6);
+  }
+
+  &__content {
+    flex: 1;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: spacing(6);
+  }
+
+  &__footer {
+    border-top: size(1) solid #{$borderColor};
+    display: flex;
+    padding: spacing(3);
+
+    #{$selector}--orientation-vertical & {
+      flex-direction: column;
+    }
+  }
+
+  &__actions-container {
+    display: flex;
+    margin-left: auto;
+
+    #{$selector}--orientation-vertical & {
+      flex-direction: column;
+      margin-left: 0;
+    }
+  }
+
+  &__action {
+    #{$selector}--orientation-vertical & {
+      text-align: center;
+    }
+
+    & + #{$selector}--orientation-vertical #{$selector}__actions-container {
+      margin-top: spacing(3);
+    }
+
+    &--extra-padding {
+      margin-bottom: spacing(1);
+      padding-block: spacing(2);
+    }
+
+    & + & {
+      margin-left: spacing(3);
+
+      #{$selector}--orientation-vertical & {
+        margin-left: 0;
+        margin-top: spacing(3);
+      }
+    }
+  }
+}

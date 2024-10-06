@@ -1,0 +1,125 @@
+$borderColor: color(neutral-02);
+$selector: '.modal';
+
+#{$selector} {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: zIndex(modal);
+
+  &__body {
+    background-color: color(light);
+    border-radius: radius(l);
+    display: flex;
+    flex-direction: column;
+    max-width: size(720);
+    position: relative;
+    width: 95vw;
+
+    &--no-header {
+      padding-top: spacing(9);
+    }
+
+    #{$selector}--full-screen & {
+      border-radius: 0;
+      height: 100%;
+      max-width: none;
+      width: 100vw;
+    }
+
+    @include elevation(4);
+  }
+
+  &__close-btn {
+    font-size: 0;
+    position: absolute;
+    right: size(16);
+    top: size(16);
+
+    &:focus-visible {
+      outline: 2px solid color(utilities-focus);
+      outline-offset: 1px;
+    }
+
+    #{$selector}--full-screen & {
+      padding: spacing(2);
+      right: 8px;
+      top: 8px;
+    }
+  }
+
+  &__header {
+    border-bottom: 1px solid #{$borderColor};
+    min-height: size(56);
+    padding: spacing(4);
+  }
+
+  &__title {
+    // to be not overlapped with icon
+    max-width: calc(100% - size(24));
+
+    @include font(heading-6);
+  }
+
+  &__content {
+    flex: 1;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: spacing(6);
+
+    #{$selector}--full-screen & {
+      max-height: none;
+    }
+  }
+
+  &__footer {
+    border-top: 1px solid #{$borderColor};
+    display: flex;
+    padding: spacing(3);
+
+    #{$selector}--orientation-vertical & {
+      flex-direction: column;
+    }
+  }
+
+  &__actions-container {
+    display: flex;
+    margin-left: auto;
+
+    #{$selector}--orientation-vertical & {
+      flex-direction: column;
+      margin-left: 0;
+    }
+  }
+
+  &__action {
+    #{$selector}--orientation-vertical & {
+      text-align: center;
+    }
+
+    & + #{$selector}--orientation-vertical #{$selector}__actions-container {
+      margin-top: spacing(3);
+    }
+
+    &--extra-padding {
+      margin-bottom: spacing(1);
+      padding-block: spacing(2);
+    }
+
+    & + & {
+      margin-left: spacing(3);
+
+      #{$selector}--orientation-vertical & {
+        margin-left: 0;
+        margin-top: spacing(3);
+      }
+    }
+  }
+}

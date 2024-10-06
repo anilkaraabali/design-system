@@ -1,0 +1,18 @@
+.scrollable-area {
+  overflow: hidden;
+
+  &__wrapper {
+    display: flex;
+    gap: spacing();
+    overflow-y: scroll;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    white-space: nowrap;
+
+    @include hide-scrollbar;
+  }
+
+  &__item {
+    flex-shrink: 0;
+  }
+}

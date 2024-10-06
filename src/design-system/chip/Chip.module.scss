@@ -1,0 +1,71 @@
+$selector: '.chip';
+
+#{$selector} {
+  align-items: center;
+  background-color: color(neutral-01);
+  border: 1px solid color(neutral-02);
+  border-radius: radius();
+  cursor: pointer;
+  display: inline-flex;
+  height: size(32);
+  padding-inline: spacing(3);
+  transition: all 200ms ease-in-out;
+  user-select: none;
+
+  &:focus-visible {
+    border-color: color(utilities-focus);
+  }
+
+  @include hover-pointer-fine {
+    &:hover {
+      background-color: color(neutral-02);
+    }
+  }
+
+  &--checked:not(#{$selector}--disabled) {
+    background-color: color(brand-secondary-01);
+    border-color: color(brand-secondary-06);
+    color: color(brand-secondary-07);
+
+    @include hover-pointer-fine {
+      &:hover {
+        background-color: color(brand-secondary-02);
+      }
+    }
+  }
+
+  &--disabled {
+    background-color: color(neutral-02);
+    border-color: color(neutral-02);
+    color: color(neutral-04);
+    cursor: not-allowed;
+
+    #{$selector}__icon {
+      color: color(neutral-04);
+    }
+
+    > * {
+      pointer-events: none;
+    }
+  }
+
+  &--reduce-padding-prefix {
+    padding-left: spacing(2);
+  }
+
+  &--reduce-padding-suffix {
+    padding-right: spacing(2);
+  }
+
+  &__icon {
+    color: color(neutral-06);
+
+    &--prefix {
+      margin-right: spacing();
+    }
+
+    &--suffix {
+      margin-left: spacing();
+    }
+  }
+}
