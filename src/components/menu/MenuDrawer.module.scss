@@ -34,7 +34,7 @@ $selector: '.menu';
   }
 
   &__link {
-    @include font(body-2);
+    @include font(label);
     @include ellipsis(2);
     @include hover-effect;
 

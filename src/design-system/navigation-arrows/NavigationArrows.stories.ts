@@ -14,10 +14,10 @@ export const Base = {
   args: {
     as: 'div',
     nextProps: {
-      disabled: true,
+      disabled: false,
     },
     prevProps: {
-      disabled: true,
+      disabled: false,
     },
   },
 } satisfies Story;

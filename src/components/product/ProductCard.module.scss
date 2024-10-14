@@ -18,6 +18,10 @@ $selector: '.card';
     // na
   }
 
+  &__favorite {
+    border-radius: radius(full);
+  }
+
   &__gallery {
     &__link {
       display: flex;
@@ -29,15 +33,15 @@ $selector: '.card';
   }
 
   &__badge {
-    left: size(12);
+    left: 12px;
     position: absolute;
-    top: size(12);
+    top: 12px;
   }
 
   &__quick-actions {
     position: absolute;
-    right: size(12);
-    top: size(12);
+    right: 12px;
+    top: 12px;
     z-index: zIndex(resting);
   }
 
@@ -50,7 +54,7 @@ $selector: '.card';
   &__title {
     text-wrap: wrap;
 
-    @include font(body-2);
+    @include font(label);
     @include ellipsis(2);
   }
 
@@ -59,7 +63,7 @@ $selector: '.card';
   }
 
   &__price {
-    @include font(button);
+    @include font(label);
 
     span {
       padding-inline: spacing(0);
@@ -83,13 +87,13 @@ $selector: '.card';
   }
 
   &__color {
-    border-radius: 50%;
+    border-radius: radius(full);
     cursor: pointer;
     height: size(8);
     width: size(8);
 
     &:not(#{$selector}__color--active) {
-      border: size(1) solid color(neutral-02);
+      border: 1px solid color(neutral-02);
     }
 
     &-more {
@@ -97,8 +101,8 @@ $selector: '.card';
     }
 
     &--active {
-      outline: size(1) solid color(brand-primary-01);
-      outline-offset: size(1);
+      outline: 1px solid color(brand-primary-01);
+      outline-offset: 1px;
     }
   }
 }

@@ -23,66 +23,40 @@
   }
 
   &-size {
-    &--x-small {
-      height: size(24);
-      width: size(24);
-
-      @include font(caption);
-    }
-
-    &--small {
+    &--sm {
       height: size(32);
       width: size(32);
-
-      @include font(body);
     }
 
-    &--medium {
+    &--md {
       height: size(48);
       width: size(48);
 
       @include font(heading-6);
     }
 
-    &--large {
+    &--lg {
       height: size(96);
       width: size(96);
 
       @include font(heading-4);
     }
-
-    &--x-large {
-      height: size(140);
-      width: size(140);
-
-      @include font(heading-2);
-    }
   }
 
   &__placeholder {
-    &--x-small {
-      height: size(24);
-      width: size(24);
-    }
-
-    &--small {
+    &--sm {
       height: size(32);
       width: size(32);
     }
 
-    &--medium {
+    &--md {
       height: size(48);
       width: size(48);
     }
 
-    &--large {
+    &--lg {
       height: size(96);
       width: size(96);
-    }
-
-    &--x-large {
-      height: size(140);
-      width: size(140);
     }
   }
 }

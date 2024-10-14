@@ -86,7 +86,7 @@ $selector: '.text-field';
           }
 
           &__label {
-            @include font(body-2);
+            @include font(label);
 
             display: block;
             margin-bottom: spacing();

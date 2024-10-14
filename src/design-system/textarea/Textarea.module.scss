@@ -40,7 +40,7 @@ $selector: '.textarea';
   &__label {
     pointer-events: none;
 
-    @include font(body-2);
+    @include font(label);
   }
 
   &__input {
@@ -53,8 +53,6 @@ $selector: '.textarea';
     overflow-wrap: break-word;
     padding: spacing(2) spacing(3);
     transition: box-shadow 300ms ease;
-
-    @include font(body);
 
     &:focus-within {
       box-shadow: 0 0 0 2px color(brand-secondary-06);

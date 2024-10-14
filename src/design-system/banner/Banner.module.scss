@@ -75,7 +75,7 @@ $selector: '.banner';
   &__text {
     flex: 1;
 
-    @include font(body-2);
+    @include font(label);
   }
 
   &__button {

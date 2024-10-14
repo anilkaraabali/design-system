@@ -7,8 +7,7 @@ const meta: Meta<typeof Button> = {
   args: {
     disabled: false,
     loading: false,
-    shape: 'default',
-    size: 'default',
+    size: 'regular',
     theme: 'primary',
     type: 'button',
   },
@@ -22,17 +21,13 @@ const meta: Meta<typeof Button> = {
     loading: {
       control: 'boolean',
     },
-    shape: {
-      control: { type: 'radio' },
-      options: ['default', 'rounded'],
-    },
     size: {
       control: { type: 'radio' },
-      options: ['small', 'default'],
+      options: ['small', 'regular'],
     },
     theme: {
       control: { type: 'radio' },
-      options: ['primary', 'secondary', 'tertiary', 'ghost', 'link'],
+      options: ['primary', 'secondary', 'tertiary', 'ghost', 'link', 'none'],
     },
   },
   component: Button,
@@ -44,15 +39,6 @@ type Story = StoryObj<typeof meta>;
 export const LabelOnly = {
   args: {
     children: 'Label',
-  },
-} satisfies Story;
-
-export const IconOnly = {
-  args: {
-    icon: {
-      component: IconTimes,
-      position: 'prefix',
-    },
   },
 } satisfies Story;
 

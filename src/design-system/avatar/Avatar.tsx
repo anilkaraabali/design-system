@@ -11,7 +11,7 @@ export interface AvatarProps extends React.ComponentPropsWithRef<'div'> {
     firstName: string;
     lastName: string;
   };
-  size: 'large' | 'medium' | 'small' | 'x-large' | 'x-small';
+  size: 'lg' | 'md' | 'sm';
 }
 
 const getInitials = (initials: AvatarProps['initials']): string => {

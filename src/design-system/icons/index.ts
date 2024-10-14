@@ -4,6 +4,7 @@ export * from './IconArrowRightThick';
 export * from './IconArrowUpDown';
 export * from './IconCheckmark';
 export * from './IconCheckmarkCircleFilled';
+export * from './IconCheckmarkThick';
 export * from './IconChevronDown';
 export * from './IconChevronLeft';
 export * from './IconChevronRight';

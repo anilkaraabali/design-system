@@ -30,9 +30,7 @@ export const NavigationArrows = forwardRef<
         : { className: clsx(styles['navigation-arrows'], rest.className) })}
     >
       <Button
-        aria-label='Previous item'
         icon={{ component: IconArrowLeft, position: 'prefix' }}
-        shape='rounded'
         size='small'
         theme='secondary'
         {...prevProps}
@@ -46,9 +44,7 @@ export const NavigationArrows = forwardRef<
         }}
       />
       <Button
-        aria-label='Next item'
         icon={{ component: IconArrowRight, position: 'prefix' }}
-        shape='rounded'
         size='small'
         theme='secondary'
         {...nextProps}

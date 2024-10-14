@@ -1,8 +1,6 @@
 @import '../button/ButtonTheme';
 
 .link {
-  cursor: pointer;
-
   @include commonStyles(link);
 
   &-theme {

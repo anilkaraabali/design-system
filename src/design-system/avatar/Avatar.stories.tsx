@@ -9,7 +9,7 @@ const meta: Meta<typeof Avatar> = {
     },
     size: {
       control: { type: 'radio' },
-      options: ['large', 'medium', 'small', 'x-large', 'x-small'],
+      options: ['sm', 'md', 'lg'],
     },
   },
   component: Avatar,
@@ -21,16 +21,16 @@ type Story = StoryObj<typeof meta>;
 export const Base = {
   args: {
     halo: false,
-    image: (
-      <img
-        alt='User Avatar'
-        src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80'
-      />
-    ),
+    // image: (
+    //   <img
+    //     alt='User Avatar'
+    //     src='https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80'
+    //   />
+    // ),
     initials: {
       firstName: 'John',
       lastName: 'Doe',
     },
-    size: 'small',
+    size: 'md',
   },
 } satisfies Story;

@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 import React from 'react';
-import { Oswald, Quicksand } from 'next/font/google';
+import { Lato, Noto_Sans } from 'next/font/google';
 import './styles.scss';
 
 import { Snackbar } from '../src/design-system/snackbar';
@@ -8,16 +8,16 @@ import { NextIntlClientProvider } from 'next-intl';
 
 import enMessages from '../messages/en.json';
 
-const fontPrimary = Quicksand({
+const fontHeading = Lato({
   subsets: ['latin-ext'],
-  weight: ['400', '500'],
+  weight: ['300', '400', '700'],
   style: ['normal'],
 });
 
-const fontSecondary = Oswald({
+const fontDefault = Noto_Sans({
   style: 'normal',
   subsets: ['latin-ext'],
-  weight: ['300', '400', '500'],
+  weight: ['400', '500'],
 });
 
 const preview: Preview = {
@@ -33,8 +33,8 @@ const preview: Preview = {
         >
           <style>{`
             :root {
-              --font-family-primary: ${fontPrimary.style.fontFamily};
-              --font-family-secondary: ${fontSecondary.style.fontFamily};
+              --font-family-heading: ${fontHeading.style.fontFamily};
+              --font-family-default: ${fontDefault.style.fontFamily};
             }
           `}</style>
           <Snackbar />

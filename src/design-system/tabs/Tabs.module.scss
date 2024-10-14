@@ -1,4 +1,6 @@
-.tabs {
+$selector: '.tabs';
+
+#{$selector} {
   &__navigation {
     align-items: center;
     display: flex;
@@ -6,8 +8,6 @@
   }
 
   &__content {
-    padding-inline: size(1);
-
     &--hidden {
       display: none;
     }
@@ -26,10 +26,10 @@
     transition: all 0.3s;
     white-space: nowrap;
 
-    @include font(button);
+    @include font(label);
 
     @include hover-pointer-fine {
-      &:hover {
+      &:hover:not(#{$selector}__navigation-item--active) {
         background-color: color(brand-secondary-01);
         box-shadow: inset 0 -3px 0 0 color(brand-secondary-02);
         color: color(brand-secondary-07);

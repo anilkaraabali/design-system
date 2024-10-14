@@ -9,7 +9,7 @@ import { NextPage } from 'next';
 import { SessionProvider } from 'next-auth/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { DefaultSeo } from 'next-seo';
-import { Plus_Jakarta_Sans, Poppins } from 'next/font/google';
+import { Lato, Noto_Sans } from 'next/font/google';
 import { useRouter } from 'next/router';
 
 import SEO from '../../next-seo.config';
@@ -22,16 +22,16 @@ type AppPropsWithLayout = {
   Component: NextPageWithLayout;
 } & AppProps;
 
-const fontPrimary = Poppins({
+const fontHeading = Lato({
+  style: 'normal',
+  subsets: ['latin-ext'],
+  weight: ['300', '400', '700'],
+});
+
+export const fontDefault = Noto_Sans({
   style: 'normal',
   subsets: ['latin-ext'],
   weight: ['400', '500'],
-});
-
-export const fontSecondary = Plus_Jakarta_Sans({
-  style: 'normal',
-  subsets: ['latin-ext'],
-  weight: ['300', '400', '500'],
 });
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
@@ -54,8 +54,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       >
         <style global jsx>{`
           :root {
-            --font-family-primary: ${fontPrimary.style.fontFamily};
-            --font-family-secondary: ${fontSecondary.style.fontFamily};
+            --font-family-heading: ${fontHeading.style.fontFamily};
+            --font-family-default: ${fontDefault.style.fontFamily};
           }
         `}</style>
         <DefaultSeo {...SEO} />

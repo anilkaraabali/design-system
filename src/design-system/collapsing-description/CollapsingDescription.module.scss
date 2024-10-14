@@ -6,7 +6,7 @@
     transition: max-height 150ms;
     word-break: break-word;
 
-    @include font(body-2);
+    @include font(label);
 
     &--trim {
       &::after {

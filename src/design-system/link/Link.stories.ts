@@ -6,25 +6,20 @@ import { Link as LinkComponent } from './Link';
 const meta: Meta<typeof LinkComponent> = {
   args: {
     href: 'https://example.com',
-    shape: 'default',
-    size: 'default',
+    size: 'regular',
     theme: 'primary',
   },
   argTypes: {
     children: {
       control: 'text',
     },
-    shape: {
-      control: { type: 'radio' },
-      options: ['default', 'rounded'],
-    },
     size: {
       control: { type: 'radio' },
-      options: ['xsmall', 'small', 'default'],
+      options: ['regular', 'small'],
     },
     theme: {
       control: { type: 'radio' },
-      options: ['primary', 'secondary', 'tertiary', 'ghost', 'link'],
+      options: ['primary', 'secondary', 'tertiary', 'ghost', 'link', 'none'],
     },
   },
   component: LinkComponent,

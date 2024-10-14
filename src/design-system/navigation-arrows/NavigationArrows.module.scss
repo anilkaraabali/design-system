@@ -5,12 +5,7 @@
 
   &__arrow {
     &:disabled {
-      color: color(neutral-03);
       pointer-events: none;
-    }
-
-    &#{&}:disabled {
-      background-color: inherit;
     }
   }
 }

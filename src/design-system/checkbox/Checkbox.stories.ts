@@ -14,7 +14,6 @@ export const Unselected = {
     children: 'Label',
     defaultChecked: false,
     disabled: false,
-    error: false,
   },
 } satisfies Story;
 
@@ -23,6 +22,14 @@ export const Selected = {
     children: 'Label',
     defaultChecked: true,
     disabled: false,
-    error: false,
+  },
+} satisfies Story;
+
+export const Error = {
+  args: {
+    children: 'Label',
+    defaultChecked: true,
+    disabled: false,
+    errorText: 'Error message',
   },
 } satisfies Story;

@@ -1,6 +1,6 @@
-.toggle {
-  $self: &;
+$selector: '.switch';
 
+#{$selector} {
   background-color: color(neutral-03);
   border-radius: size(18);
   display: inline-block;
@@ -10,7 +10,7 @@
 
   &::before {
     background-color: color(light);
-    border-radius: 50%;
+    border-radius: radius(full);
     content: '';
     display: block;
     height: size(20);
@@ -27,7 +27,7 @@
     }
   }
 
-  &--big {
+  &--large {
     padding: spacing();
     width: size(60);
 
@@ -36,7 +36,7 @@
       width: size(28);
     }
 
-    &#{$self}--checked {
+    &#{$selector}--checked {
       &::before {
         transform: translateX(calc(100% - size(4)));
       }
@@ -50,5 +50,16 @@
     &::before {
       background-color: color(neutral-01);
     }
+  }
+
+  &__container {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    gap: spacing(3);
+  }
+
+  &__label {
+    user-select: none;
   }
 }

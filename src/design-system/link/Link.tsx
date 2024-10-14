@@ -6,7 +6,7 @@ import styles from './Link.module.scss';
 
 export interface LinkProps
   extends Omit<React.ComponentPropsWithRef<'a'>, 'href'>,
-    Pick<ButtonProps, 'icon' | 'shape' | 'size' | 'theme'> {
+    Pick<ButtonProps, 'icon' | 'size' | 'theme'> {
   href: string;
 }
 
@@ -17,9 +17,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       className,
       href,
       icon,
-      shape = 'default',
       size = 'default',
-      theme,
+      theme = 'none',
       ...rest
     },
     ref
@@ -37,8 +36,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             hasChildren && icon?.position === 'suffix',
           [styles['link-theme']]: theme,
           [styles[`link-size--${size}`]]: theme,
-          [styles[`link-theme--${theme}--rounded`]]:
-            shape === 'rounded' && theme && !hasChildren,
           [styles[`link-theme--${theme}--with-padding`]]:
             !!theme && !isLinkTheme && hasChildren,
           [styles[`link-theme--${theme}`]]: theme,

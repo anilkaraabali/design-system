@@ -1,15 +1,8 @@
 @mixin buttonLikeThemeStyles {
-  align-items: center;
   border-radius: radius();
-  display: inline-flex;
-  justify-content: center;
 
   &--with-padding {
     padding-inline: spacing(3);
-  }
-
-  &--rounded {
-    border-radius: radius(100);
   }
 }
 
@@ -134,7 +127,12 @@
 }
 
 @mixin commonStyles($component: button) {
-  @include font(button);
+  align-items: center;
+  display: inline-flex;
+  font-weight: 500;
+  justify-content: center;
+
+  @include font(label);
 
   &:focus-visible {
     outline: 2px solid color(utilities-focus);
@@ -143,17 +141,12 @@
   }
 
   &-size {
-    &--xsmall {
-      height: size(24);
-      min-width: size(24);
-    }
-
     &--small {
       height: size(36);
       min-width: size(36);
     }
 
-    &--default {
+    &--regular {
       height: size(48);
       min-width: size(48);
     }
