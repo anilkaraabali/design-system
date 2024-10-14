@@ -43,7 +43,7 @@ $selector: '.tag';
     &--large {
       height: size(24);
 
-      @include font(body-2);
+      @include font(label);
 
       #{$selector}__icon {
         height: size(24);

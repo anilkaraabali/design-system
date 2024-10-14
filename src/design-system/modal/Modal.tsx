@@ -2,6 +2,7 @@ import { useConstructor, useOnFullScreen } from '@/hooks';
 import clsx from 'clsx';
 import React, { forwardRef, useCallback, useMemo } from 'react';
 
+import { Button } from '../button';
 import { IconTimes, IconTimesSmall } from '../icons';
 import { Overlay } from '../overlay';
 import { Portal } from '../portal';
@@ -130,21 +131,27 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
           )}
           <div className={clsx(styles['modal__body'], bodyClassName)}>
             {showHeader && (
-              <>
-                <button
-                  aria-label='Close'
-                  className={styles['modal__close-btn']}
-                  onClick={handleCloseButtonClick}
-                  type='button'
-                >
-                  {fullScreen ? <IconTimes /> : <IconTimesSmall />}
-                </button>
-                <header className={styles['modal__header']}>
+              <header
+                className={clsx(styles['modal__header'], {
+                  [styles['modal__header--with-border']]: !!modalTitle,
+                })}
+              >
+                {modalTitle && (
                   <h2 className={styles['modal__title']} id='modal-title'>
                     {modalTitle}
                   </h2>
-                </header>
-              </>
+                )}
+                <Button
+                  aria-label='Close'
+                  className={styles['modal__close-btn']}
+                  icon={{
+                    component: fullScreen ? IconTimes : IconTimesSmall,
+                    position: 'prefix',
+                  }}
+                  onClick={handleCloseButtonClick}
+                  size='small'
+                />
+              </header>
             )}
             {withForm?.props ? (
               <form {...withForm.props}>

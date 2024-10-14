@@ -24,8 +24,7 @@ export const HeaderButtonGroup: React.FC<HeaderButtonGroupProps> = ({
         position: 'prefix',
       }}
       onClick={() => setAction('search')}
-      shape='rounded'
-      theme='ghost'
+      size='small'
     />
     <Button
       icon={{
@@ -33,8 +32,7 @@ export const HeaderButtonGroup: React.FC<HeaderButtonGroupProps> = ({
         position: 'prefix',
       }}
       onClick={() => setAction('auth')}
-      shape='rounded'
-      theme='ghost'
+      size='small'
     />
     <Link
       href='/wishlist'
@@ -42,8 +40,7 @@ export const HeaderButtonGroup: React.FC<HeaderButtonGroupProps> = ({
         component: IconHeart,
         position: 'prefix',
       }}
-      shape='rounded'
-      theme='ghost'
+      size='small'
     />
     <Link
       href='/cart'
@@ -51,8 +48,7 @@ export const HeaderButtonGroup: React.FC<HeaderButtonGroupProps> = ({
         component: IconShoppingBag,
         position: 'prefix',
       }}
-      shape='rounded'
-      theme='ghost'
+      size='small'
     />
   </div>
 );

@@ -38,32 +38,23 @@ $selector: '.modal';
   }
 
   &__close-btn {
-    font-size: 0;
-    position: absolute;
-    right: size(16);
-    top: size(16);
-
-    &:focus-visible {
-      outline: 2px solid color(utilities-focus);
-      outline-offset: 1px;
-    }
-
-    #{$selector}--full-screen & {
-      padding: spacing(2);
-      right: 8px;
-      top: 8px;
-    }
+    margin-left: auto;
   }
 
   &__header {
-    border-bottom: 1px solid #{$borderColor};
-    min-height: size(56);
-    padding: spacing(4);
+    align-items: center;
+    display: flex;
+    gap: spacing(3);
+    height: size(64);
+    padding-inline: spacing(4) spacing();
+
+    &--with-border {
+      border-bottom: 1px solid #{$borderColor};
+    }
   }
 
   &__title {
-    // to be not overlapped with icon
-    max-width: calc(100% - size(24));
+    font-weight: bolder;
 
     @include font(heading-6);
   }
@@ -109,7 +100,7 @@ $selector: '.modal';
     }
 
     &--extra-padding {
-      margin-bottom: spacing(1);
+      margin-bottom: spacing();
       padding-block: spacing(2);
     }
 

@@ -8,11 +8,12 @@ import { ButtonLoader } from './ButtonLoader';
 export type ButtonTheme =
   | 'ghost'
   | 'link'
+  | 'none'
   | 'primary'
   | 'secondary'
   | 'tertiary';
 
-export type ButtonSize = 'default' | 'small' | 'xsmall';
+export type ButtonSize = 'regular' | 'small';
 
 export interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
   icon?: {
@@ -21,7 +22,6 @@ export interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
     props?: IconProps;
   };
   loading?: boolean;
-  shape?: 'default' | 'rounded';
   size?: ButtonSize;
   theme?: ButtonTheme;
 }
@@ -32,9 +32,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       icon,
       loading = false,
-      shape = 'default',
-      size = 'default',
-      theme,
+      size = 'regular',
+      theme = 'none',
       type = 'button',
       ...rest
     },
@@ -51,7 +50,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...rest}
         className={clsx(
           styles['button'],
-
           {
             [styles['button--loading']]: loading,
             [styles['button--reduce-padding-prefix']]:
@@ -60,8 +58,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               hasChildren && icon?.position === 'suffix',
             [styles['button-theme']]: theme,
             [styles[`button-size--${size}`]]: theme,
-            [styles[`button-theme--${theme}--rounded`]]:
-              shape === 'rounded' && theme && !hasChildren,
             [styles[`button-theme--${theme}--with-padding`]]:
               theme && !isLinkTheme && hasChildren,
             [styles[`button-theme--${theme}`]]: theme,

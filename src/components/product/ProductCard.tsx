@@ -171,12 +171,12 @@ export const ProductCard = forwardRef<HTMLElement, ProductCardProps>(
           {showFavorite && (
             <div className={styles['card__quick-actions']}>
               <Button
+                className={styles['card__favorite']}
                 icon={{
                   component: IconHeart,
                   position: 'prefix',
                 }}
                 onClick={onFavoriteClick}
-                shape='rounded'
                 size='small'
                 theme='tertiary'
               />

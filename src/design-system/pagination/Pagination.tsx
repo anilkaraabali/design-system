@@ -100,7 +100,15 @@ export const Pagination = forwardRef<HTMLDivElement, PaginitionProps>(
     );
 
     const Disabled = useCallback<React.FC<Partial<ButtonProps>>>(
-      (props) => <Button {...props} disabled size='small' theme='secondary' />,
+      (props) => (
+        <Button
+          {...props}
+          className={styles['pagination__link--disabled']}
+          disabled
+          size='small'
+          theme='secondary'
+        />
+      ),
       []
     );
 

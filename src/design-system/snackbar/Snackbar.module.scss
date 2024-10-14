@@ -16,12 +16,10 @@ $selector: '.snackbar';
     opacity 150ms ease-in-out;
 
   @include elevation(2);
-  @include font(body-2);
+  @include font(label);
 
   @include breakpoint(md) {
     min-height: size(64);
-
-    @include font(body);
   }
 
   &--visible {

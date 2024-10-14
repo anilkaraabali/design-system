@@ -26,8 +26,9 @@
   @each $name, $properties in $settings {
     @each $property, $value in $properties {
       @if $property == 'size' {
-        // Convert the size value to a CSS value with a unit (e.g., pixels)
         --styleguide-typography-#{$name}-#{$property}: #{size($value)};
+      } @else if $property == 'lh' {
+        --styleguide-typography-#{$name}-#{$property}: #{$value}px;
       } @else {
         // For other properties, just set them as-is
         --styleguide-typography-#{$name}-#{$property}: #{$value};
@@ -36,33 +37,23 @@
   }
 }
 
-@mixin font($key: body, $weight: null) {
+@mixin font($key: body) {
   @if map.has-key($languages-map, $language) {
     $settings: map.get($languages-map, $language);
 
     @if map.has-key($settings, $key) {
       $properties: map.get($settings, $key);
 
-      @if index(body body-2 caption overline button, $key) {
-        font-family: var(--font-family-primary);
+      @if index(body label caption, $key) {
+        font-family: var(--font-family-default);
       } @else {
-        font-family: var(--font-family-secondary);
+        font-family: var(--font-family-heading);
       }
 
       font-size: var(
         --styleguide-typography-#{$key}-size,
         map.get($properties, size)
       );
-
-      @if $weight {
-        font-weight: $weight;
-      } @else {
-        font-weight: var(
-          --styleguide-typography-#{$key}-fw,
-          map.get($properties, fw)
-        );
-      }
-
       letter-spacing: var(
         --styleguide-typography-#{$key}-ls,
         map.get($properties, ls)

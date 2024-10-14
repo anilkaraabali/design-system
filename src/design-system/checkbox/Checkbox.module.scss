@@ -1,6 +1,10 @@
 $selector: '.checkbox';
 
 #{$selector} {
+  &__container {
+    min-height: size(40);
+  }
+
   &--error {
     & + #{$selector}__label::before {
       background-color: color(error-01);
@@ -76,7 +80,7 @@ $selector: '.checkbox';
       height: size(20);
       left: 0;
       position: absolute;
-      top: 0;
+      top: 2px;
       transition:
         300ms background-color,
         300ms border-color;
@@ -84,7 +88,7 @@ $selector: '.checkbox';
     }
   }
 
-  &__text {
+  &__content {
     margin-left: spacing(5);
     padding-left: spacing(2);
   }
@@ -94,7 +98,7 @@ $selector: '.checkbox';
     left: 2.5px;
     opacity: 0;
     position: absolute;
-    top: 5px;
+    top: 7px;
     transition: opacity 300ms;
     z-index: zIndex(resting);
 
@@ -103,5 +107,13 @@ $selector: '.checkbox';
       stroke-dashoffset: 30;
       transition: 1000ms stroke-dashoffset;
     }
+  }
+
+  &__text {
+    color: color(error-06);
+    margin-left: spacing(6);
+    padding-left: spacing();
+
+    @include font(caption);
   }
 }

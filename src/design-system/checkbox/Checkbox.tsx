@@ -1,34 +1,36 @@
 import clsx from 'clsx';
 import React, { forwardRef, PropsWithChildren } from 'react';
 
+import { IconCheckmarkThick } from '../icons';
 import styles from './Checkbox.module.scss';
-import { CheckboxIcon } from './IconCheckmarkThick';
 
 interface CheckboxProps extends React.ComponentPropsWithRef<'input'> {
-  containerClassName?: string;
-  error?: boolean;
+  errorText?: string;
 }
 
 export const Checkbox = forwardRef<
   HTMLInputElement,
   PropsWithChildren<CheckboxProps>
->(({ children, containerClassName, error = false, id, name, ...rest }, ref) => (
-  <div className={containerClassName}>
+>(({ children, errorText, id, name, ...rest }, ref) => (
+  <div className={styles['checkbox__container']}>
     <input
-      aria-invalid={!!error}
+      aria-checked={rest.checked}
+      aria-invalid={!!errorText}
       aria-labelledby={name}
+      aria-required={rest.required}
       id={id}
       name={name}
       ref={ref}
       type='checkbox'
       {...rest}
       className={clsx(styles['checkbox'], rest.className, {
-        [styles['checkbox--error']]: error,
+        [styles['checkbox--error']]: !!errorText,
       })}
     />
     <label className={styles['checkbox__label']} htmlFor={id}>
-      <CheckboxIcon className={styles['checkbox__icon']} />
-      <span className={styles['checkbox__text']}>{children}</span>
+      <IconCheckmarkThick className={styles['checkbox__icon']} />
+      <span className={styles['checkbox__content']}>{children}</span>
     </label>
+    {errorText && <p className={styles['checkbox__text']}>{errorText}</p>}
   </div>
 ));

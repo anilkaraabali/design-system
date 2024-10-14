@@ -67,7 +67,7 @@ $selector: '.breadcrumbs';
     &--last {
       color: color(brand-secondary-07);
 
-      @include font(subtitle-2);
+      @include font(label);
     }
   }
 

@@ -190,8 +190,7 @@ export const Drawer: React.FC<React.PropsWithChildren<DrawerProps>> = ({
                   }, animationDuration);
                   onCloseButtonClick?.();
                 }}
-                shape='rounded'
-                theme='tertiary'
+                size='small'
               />
             )}
           </header>
